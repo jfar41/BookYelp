@@ -4,17 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
+require('dotenv').config(); //require .env
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-//require .env
-require('dotenv').config();
-
+//create the express app
 var app = express();
 
-//connect to the MongoDB with mongoose
+//connect to MongoDB with Mongoose
 require('./config/database');
+
+//require our routes
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/readers');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
