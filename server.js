@@ -17,7 +17,7 @@ require('./config/passport');
 
 //require our routes
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/readers');
+var readersRouter = require('./routes/readers');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,8 +37,16 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
+
+//custom middleware that passes
+//req.user to all templates
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/readers', readersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
