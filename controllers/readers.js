@@ -3,32 +3,44 @@ const Reader = require('../models/reader');
 module.exports = {
     index,
     addBook,
-    delBook
+    delBook,
+    library,
+    newBook
+}
+
+function newBook(req, res, next) {
+    Reader.findById(req.user._id, function(err, reader) {
+        res.render("readers/new", {
+            reader
+        })
+    })
+}
+
+function library(req, res, next) {
+    Reader.findById(req.user._id, function(err, reader) {
+        res.render("readers/show", {
+            reader
+        })
+    })
 }
 
 function index(req, res, next) {
-    console.log(req.query)
-    // Make the query object to use with Student.find based up
-    // the user has submitted the search form or now
-    let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-    // Default to sorting by name
-    let sortKey = req.query.sort || 'name';
-    Reader.find(modelQuery)
-    .sort(sortKey).exec(function(err, readers) {
-      if (err) return next(err);
-      // Passing search values, name & sortKey, for use in the EJS
-      res.render('readers/index', { readers, name: req.query.name, sortKey });
-      res.render('readers/index', {
-          readers,
-          user: req.user,
-          name: req.query.name,
-          sortKey
-      });
-    });
+    Reader.find({}, function(err, readers) {
+        res.render('readers/index', {readers});
+    })
 }
 
-function addBook() {
-
+function addBook(req, res, next) {
+    console.log(req.user);
+    Reader.findById(req.user._id, function(err, reader) {
+        reader.books.push(req.body);
+        reader.save(function(e, r) {
+            if (e) {
+                return res.redirect(`back`);
+            } 
+            res.redirect('/readers/library');
+        })
+    })
 }
 
 function delBook() {

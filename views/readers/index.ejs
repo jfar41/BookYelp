@@ -1,10 +1,47 @@
 <%- include('../partials/header') %>
-<ul class="right">
-	<li>
-	<% if (user) { %>
-		<a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-	<% } else { %>
-		<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-	<% } %>
-	</li>
-</ul>
+
+        <ul class="right">
+            <li>
+            <% if (user) { %>
+                <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+            <% } else { %>
+                <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+            <% } %>
+            </li>
+        </ul>
+    <div class="row">
+        <div id="readers" class="col s12">
+            <% readers.forEach(function(reader){ %>
+                <div class="car blue=grey">
+                    <div class="card-content white-text">
+                        <div>
+                            <span class="card-title">
+                                <% if (reader.avatar) { %>
+                                    <img src="<%= reader.avatar %>" alt="profile avatar" class="circle responsive-img" width= "50">
+                                  <% } else { %>
+                                    <i class="small material-icons">perm_identity</i>
+                                  <% } %>
+                                  <span class="reader-name"><%= reader.name %></span>
+                            </span>
+                        </div>
+                        <ul class="collection">
+                            <% reader.books.forEach(function(book) { %>
+                              <li class="collection-item blue-grey-text text-darken-2"><%- book.text %></li>
+                            <% }) %>
+                          </ul>
+                          <% if (reader._id.equals(user && user._id)) { %>
+                            <div class="card-action">
+                              <form action="/books" method="POST">
+                                <input type="text" name="text" class="white-text">
+                                <button type="submit" class="btn white-text">Add Book</button>
+                              </form>
+                            </div>
+                          <% } %>
+                    </div>
+                </div>
+           <% }) %>
+        </div>
+
+    </div>
+</body>
+</html>
