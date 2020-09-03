@@ -1,6 +1,12 @@
 <%- include('../partials/header') %>
-<% reader.books.forEach(b => {%>
-<%= b.text %>
-    <% }) %>
+    <% reader.books.forEach(b => {%>
+        <%= b.text %>
+
+        <% if (reader._id.equals(user && user._id)) { %>
+            <form action="/readers/<%= b._id %>?_method=DELETE" method="POST" class="secondary-content">
+            <button type="submit" class="btn-small red-text">X</button>
+            </form>
+    <% } %>
+<% }) %>
 </body>
 </html>

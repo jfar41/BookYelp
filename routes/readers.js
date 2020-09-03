@@ -8,8 +8,8 @@ router.get('/library', isLoggedIn, readersCtrl.library);
 router.get('/books', isLoggedIn, readersCtrl.newBook);
 router.post('/books', isLoggedIn, readersCtrl.addBook);
 
-//DELETE /books/:id
-router.delete('/books/:id', isLoggedIn, readersCtrl.delBook);
+//DELETE /library/:id
+router.delete('/:id', isLoggedIn, readersCtrl.delBook);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated() ) return next();
