@@ -18,6 +18,7 @@ function newBook(req, res, next) {
 
 function library(req, res, next) {
     Reader.findById(req.user._id, function(err, reader) {
+        console.log(reader);
         res.render("readers/show", {
             reader
         })
@@ -43,6 +44,7 @@ function addBook(req, res, next) {
         })
     })
 }
+
 function delBook(req, res, next) {
     // console.log(req.params.id);
     Reader.findOne({ "books._id" : req.params.id }, function(err, reader) {

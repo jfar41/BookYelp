@@ -6,7 +6,21 @@
             <form action="/readers/<%= b._id %>?_method=DELETE" method="POST" class="secondary-content">
             <button type="submit" class="btn-small red-text">X</button>
             </form>
+            <h2>Bookmark</h2>
+            <form id="add-bookmark-form" method="POST" action="/readers/<%= reader._id %>/reviews">
+              <label>Review:</label>
+              <textarea name="content"></textarea>
+              <input type="submit" value="Add Bookmark">
+              </form>
     <% } %>
+    <% reader.reviews.forEach(r => { %>
+        <%= r.content %>
+    <form action="/readers/<%= reader._id %>/reviews/<%= r._id%>?_method=PUT" method="POST">
+    <input type="text" name="content">
+    <input type="submit" value="Edit Review">
+    </form>
+        <% }) %>
 <% }) %>
+
 </body>
 </html>
