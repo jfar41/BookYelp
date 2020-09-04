@@ -77,3 +77,13 @@ body{
 .textBoxSpacingShow{
   padding: 80px;
 }
+
+.car{
+  position: relative;
+  max-width: 600px;
+  height: auto;
+  border: 2px solid black;
+  margin: 100px auto;
+  padding: 30px;
+  box-sizing: border-box;
+}
