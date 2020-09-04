@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
-
-        <ul class="right">
+  <div class="header">
+    <div class="inner_header">
+        <ul class="right navigation">
             <li>
             <% if (user) { %>
                 <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
@@ -9,6 +10,9 @@
             <% } %>
             </li>
         </ul>
+    </div>
+  </div>
+<div class="textBoxSpacingIndex">
     <div class="row">
         <div id="readers" class="col s12">
             <% readers.forEach(function(reader){ %>
@@ -44,6 +48,8 @@
 
     </div>
   </div>
+
+</div>
 </div>
 </div>
 </body>

@@ -63,3 +63,17 @@ body{
   font-family: 'Montserrat';
   font-size: 16px;
 }
+
+.textBoxSpacingIndex{
+  padding: 100px;
+  display: table;
+  
+}
+
+.textBoxSpacingNew{
+  padding: 30px;
+}
+
+.textBoxSpacingShow{
+  padding: 80px;
+}
