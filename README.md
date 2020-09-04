@@ -9,6 +9,8 @@
 ![Picture of add page](https://i.imgur.com/SIL6C4N.png)
 ![Picture of wireframe 1](https://i.imgur.com/dhRcXTd.png)
 ![Picture of wireframe 2](https://i.imgur.com/KHxbl2f.png)
+![Picture of ERD](https://i.imgur.com/k3Hwmu6.png)
+
 
 
 
