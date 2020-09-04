@@ -18,6 +18,9 @@
                 <a href="/"><li>Home</li></a>
                 <a href="/readers/books"><li>Add a Book</li></a>
                 <a href="/readers/library"><li>Your Library</li></a>
+                <% if (user) { %>
+                    <a href="/logout"><li>Log Out</li></a>
+                <% } else { %>
+                    <a href="/auth/google"><li>Login with Google</li></a>
+                <% } %>
             </ul>
-
-  
