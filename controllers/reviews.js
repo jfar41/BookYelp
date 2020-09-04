@@ -2,18 +2,18 @@ const Reader = require("../models/reader");
 
 module.exports = {
   create,
-  update
+  update,
 };
 function update(req, res) {
-  console.log('hitting update function');
-  Reader.findById(req.params.id, function(err, reader) {
+  console.log("hitting update function");
+  Reader.findById(req.params.id, function (err, reader) {
     let review = reader.reviews.id(req.params.reviewId);
     review.content = req.body.content;
     console.log(review);
-    reader.save(function(e){
+    reader.save(function (e) {
       res.redirect(`back`);
-    })
-  })
+    });
+  });
 }
 function create(req, res) {
   console.log(req.params.id);

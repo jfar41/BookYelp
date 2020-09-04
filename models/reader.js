@@ -1,21 +1,21 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 var bookSchema = new mongoose.Schema({
-    text: String
+  text: String,
 });
 
 var bookmarkSchema = new mongoose.Schema({
-    content: String,
-    userName: String,
-    user: String
-})
-
-var readerSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    avatar: String,
-    books: [bookSchema],
-    reviews: [bookmarkSchema],
-    googleId: String
+  content: String,
+  userName: String,
+  user: String,
 });
 
-module.exports = mongoose.model('Reader', readerSchema)
+var readerSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  avatar: String,
+  books: [bookSchema],
+  reviews: [bookmarkSchema],
+  googleId: String,
+});
+
+module.exports = mongoose.model("Reader", readerSchema);

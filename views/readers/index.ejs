@@ -1,9 +1,5 @@
 <%- include('../partials/header') %>
-  <div class="header">
-    <div class="inner_header">
-        
-    </div>
-  </div>
+
 <div class="textBoxSpacingIndex">
     <div class="row">
         <div id="readers" class="col s12">
@@ -20,26 +16,18 @@
                                   <span class="reader-name"><%= reader.name %></span>
                             </span>
                         </div>
-                        <ul class="collection">
+                          <ul class="collection">
                             <% reader.books.forEach(function(book) { %>
                               <li class="collection-item blue-grey-text text-darken-2"><%- book.text %></li>
                             <% }) %>
                           </ul>
-                          <% if (reader._id.equals(user && user._id)) { %>
-                            <div class="card-action">
-                              <form action="/books" method="POST">
-                                <input type="text" name="text" class="white-text">
-                                <button type="submit" class="btn white-text">Add Book</button>
-                              </form>
-                            </div>
-                          <% } %>
-                    </div>
-                </div>
+                            
+                     </div>
+                 </div>
            <% }) %>
-        </div>
-
-    </div>
-  </div>
+         </div>
+     </div>
+</div>
 
 </div>
 </div>

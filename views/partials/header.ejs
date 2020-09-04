@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' href='/stylesheets/style.css' />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,800"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <title>Belp</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <div class="inner_header">
-            <div class="logo_container">
-                <h1>B<span>ELP!</span></h1>
-            </div>
-            <ul class="navigation">
-                <a href="/"><li>Home</li></a>
-                <a href="/readers/books"><li>Add a Book</li></a>
-                <a href="/readers/library"><li>Your Library</li></a>
-                <% if (user) { %>
-                    <a href="/logout"><li>Log Out</li></a>
-                <% } else { %>
-                    <a href="/auth/google"><li>Login with Google</li></a>
-                <% } %>
-            </ul>
+      <div class="inner_header">
+        <div class="logo_container">
+          <h1>B<span>ELP!</span></h1>
+        </div>
+        <ul class="navigation">
+          <a href="/"><li>Home</li></a>
+          <a href="/readers/books"><li>Add a Book</li></a>
+          <a href="/readers/library"><li>Your Library</li></a>
+          <% if (user) { %>
+          <a href="/logout"><li>Log Out</li></a>
+          <% } else { %>
+          <a href="/auth/google"><li>Login with Google</li></a>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
